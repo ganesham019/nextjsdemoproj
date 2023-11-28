@@ -10,18 +10,25 @@ on:
       - main
 
 jobs:
-        lintTest:
-          name: Lint test
+    lintTest:
+          name: Lint
           runs-on: ubuntu-latest
     
           steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Install dependencies
+              run: npm install
+
             - name: Run Linting
               run: npm run lint
 
-        deploy:
+    deploy:
           name: deployment
           runs-on: ubunto-latest
-          needs: [lintTest]        
+          needs: [lintTest]    
+              
           strategy:
               matrix:
                 node-version: [18.x]
