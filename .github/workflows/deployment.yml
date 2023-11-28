@@ -10,7 +10,8 @@ on:
       - main
 
 jobs:
-        build:
+        lintTest:
+          name: Lint test
           runs-on: ubuntu-latest
       
           strategy:
@@ -31,6 +32,50 @@ jobs:
               run: npm install
       
             - name: Build
-              run: npm run build
+              run: npm run lint
+        securityCheck:
+          name: Security check
+          runs-on: ubunto-latest
+
+          steps:
+            - name : checks for security
+              run: | 
+               echo "running check ....."
+               sleep 2s;
+               echo "running check ....."
+               sleep 2s;
+               echo "running check ....."
+               sleep 2s;
+               echo "running check ....."
+               sleep 5s;
+
+
+        deploy:
+          name: deployment
+          runs-on: ubunto-latest
+          needs: [lintTest,securityCheck]        
+            strategy:
+              matrix:
+                node-version: [18.x]
+        
+            steps:
+              - name: Checkout code
+                uses: actions/checkout@v3
+        
+              - name: Use Node.js ${{ matrix.node-version }}
+                uses: actions/setup-node@v3
+                with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: npm
+        
+              - name: Install dependencies
+                run: npm install
+        
+              - name: Build
+                run: npm run lint
+
+
+    
+            
               
 
