@@ -15,7 +15,7 @@ jobs:
           runs-on: ubuntu-latest
     
           steps:
-            - name: Build
+            - name: Run Linting
               run: npm run lint
 
         deploy:
