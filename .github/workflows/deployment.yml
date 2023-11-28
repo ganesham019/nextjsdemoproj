@@ -33,27 +33,11 @@ jobs:
       
             - name: Build
               run: npm run lint
-        securityCheck:
-          name: Security check
-          runs-on: ubunto-latest
-
-          steps:
-            - name : checks for security
-              run: | 
-               echo "running check ....."
-               sleep 2s;
-               echo "running check ....."
-               sleep 2s;
-               echo "running check ....."
-               sleep 2s;
-               echo "running check ....."
-               sleep 5s;
-
 
         deploy:
           name: deployment
           runs-on: ubunto-latest
-          needs: [lintTest,securityCheck]        
+          needs: [lintTest]        
           strategy:
               matrix:
                 node-version: [18.x]
