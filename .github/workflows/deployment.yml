@@ -26,9 +26,8 @@ jobs:
 
     deploy:
           name: deployment
-          runs-on: ubunto-latest
-          needs: [lintTest]    
-              
+          runs-on: ubunto-latest 
+
           strategy:
               matrix:
                 node-version: [18.x]
