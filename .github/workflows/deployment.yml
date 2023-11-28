@@ -27,20 +27,13 @@ jobs:
     deploy:
           name: deployment
           runs-on: ubunto-latest 
-
-          strategy:
-              matrix:
-                node-version: [18.x]
-        
+          needs: [lintTest]
           steps:
               - name: Checkout code
                 uses: actions/checkout@v3
         
-              - name: Use Node.js ${{ matrix.node-version }}
+              - name: Use Node.js 
                 uses: actions/setup-node@v3
-                with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: npm
         
               - name: Install dependencies
                 run: npm install
