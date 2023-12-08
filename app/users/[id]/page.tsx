@@ -8,8 +8,8 @@ const GetSingleUser = ({ params: { id } }: props) => {
     return (
         <div>
             <h1> User Detail {id} </h1>
-            <h2> User User</h2>
-            <h2> User User user</h2>
+            <h1> User Detail {id} </h1>
+            <h1> User Detail {id} </h1>
         </div>
     )
 }
