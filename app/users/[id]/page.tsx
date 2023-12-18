@@ -10,6 +10,7 @@ const GetSingleUser = ({ params: { id } }: props) => {
             <h1> User Detail {id} </h1>
             <h1> User Detail {id} </h1>
             <h1> User Detail {id} </h1>
+            <h1> User Detail {id} </h1>
         </div>
     )
 }
