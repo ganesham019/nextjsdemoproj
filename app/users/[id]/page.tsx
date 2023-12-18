@@ -7,7 +7,10 @@ const GetSingleUser = ({ params: { id } }: props) => {
     if (id > 10) notFound();
     return (
         <div>
-            <h1> User Detail {id}</h1>
+            <h1> User Detail {id} </h1>
+            <h1> User Detail {id} </h1>
+            <h1> User Detail {id} </h1>
+            <h1> User Detail {id} </h1>
         </div>
     )
 }
